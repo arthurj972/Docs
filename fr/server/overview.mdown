@@ -1,0 +1,29 @@
+# Vue d'ensemble
+
+**Parse hébergé sur le serveur de Parse sera entièrement arrêté le 28 janvier 2017. Si vous souhaitez migrer une application Parse.com existante, veillez lire attentivement tout ce manuel, vous aurez besoin de passer par le [guide de migration](#migrating). Dans le cas contraire, votre application cessera de fonctionner après la date butoir.**
+
+Parse rend open-source son code source sous le nom de Parse Server. Parse Server est une version du site actuel Parse.com qui peut être déployée sur toute infrastructure possédant Node.js. Vous pouvez télécharger ce code source sur le [repo GitHub](https://www.github.com/ParsePlatform/parse-server). Vous pouvez installer Node.js sur votre serveur web très facilement grâce à [ce tutoriel](https://openclassrooms.com/courses/des-applications-ultra-rapides-avec-node-js/installer-node-js).
+
+##Informations à savoir
+
+* Parse Server ne dépend pas de Parse.com.
+* Parse Server utilise une base de donnée MongoDB directement et ne dépend pas de la base de données hébergé par Parse.com.
+* Vous pouvez migrer une application existante sur votre propre infrastructure.
+* Vous pouvez développer et tester votre application localement à l'aide NodeJs.
+
+##Conditions préalables
+
+* NodeJS version 4.1
+* MongoDB version 2.6.X ou 3.0.X
+* Python version 2.x (pour les serveur sur Windows, la version 2.7.1 est requise)
+* Pour le déploiement de votre application, un fournisseur d'infrastructures tel que Heroku ou AWS, Windows Server ..etc
+
+##Installation
+
+Commencez à utiliser Parse Server en tapant la commande suivante dans votre Node.js Command Prompt:
+
+```bash
+npm install -g parse-server
+```
+
+Sinon, vous pouvez spécifier parse-server dans le fichier package.json de votre application NodeJS Express.
