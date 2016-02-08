@@ -1,0 +1,54 @@
+# SDK Parse Server
+
+Pour utiliser le SDK Parse Server, modifiez l'URL du serveur vers l'URL de votre API Parse (assurez-vous que vous avez [la dernière version du SDK](https://parse.com/docs/downloads)). Par exemple, si vous avez Parse Server installé en local, utilisez "http://localhost:1337/parse".
+
+Téléchargez le SDK Parse Server sur Github et modifiez le fichier concerné.
+
+**iOS**
+
+Pour iOS, le fichier à modifier est Parse-SDK-iOS-OSX-master/Parse/ParseClientConfiguration.m
+
+```objc
+[Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+   ...
+   
+   configuration.applicationId = @"YOUR_APP_ID";
+   configuration.clientKey = @"YOUR_APP_CLIENT_KEY";
+   configuration.server = @"http://localhost:1337/parse";
+   
+   ...
+   
+}]];
+```
+
+**Android**
+
+```java
+Parse.initialize(new Parse.Configuration.Builder(myContext)
+    .applicationId("YOUR_APP_ID")
+    .clientKey("YOUR_APP_CLIENT_KEY")
+    .server("http://localhost:1337/parse")
+
+
+    ...
+          
+    .build()
+);
+```
+
+**JavaScript**
+
+```js
+Parse.initialize("YOUR_APP_ID", "YOUR_APP_CLIENT_KEY");
+Parse.serverURL = 'http://localhost:1337/parse'
+```
+
+**.NET**
+
+```csharp
+ParseClient.initialize(new ParseClient.Configuration {
+    ApplicationId = "YOUR_APP_ID",
+    WindowsKey = "YOUR_APP_DOTNET_KEY",
+    Server = "http://localhost:1337/parse"
+});
+```
