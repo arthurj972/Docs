@@ -1,0 +1,51 @@
+# Utilisation
+
+Parse Server est destiné à être lancé sur une application [Express](http://expressjs.com/). Express est un framework web pour Node.js. Le moyen le plus rapide pour commencer est de cloner le [repo Github de Parse Server](https://github.com/ParsePlatform/parse-server) qui, à sa racine contient un échantillon de l'application NodeJS Express avec l'API Parse.
+
+Le constructeur renvoie un objet API qui est conforme à la norme [Middleware Express](http://expressjs.com/en/api.html#app.use). Cet objet fournit les noeuds finaux REST pour une application Parse. Créez une instance comme ceci:
+
+```js
+var api = new ParseServer({
+  databaseURI: 'mongodb://your.mongo.uri',
+  cloud: './cloud/main.js',
+  appId: 'myAppId',
+  fileKey: 'myFileKey',
+  masterKey: 'mySecretMasterKey',
+  clientKey: 'myClientKey',
+  restAPIKey: 'myRESTAPIKey',
+  javascriptKey: 'myJavascriptKey',
+  dotNetKey: 'myDotNetKey'
+});
+```
+
+Les paramètres sont les suivants:
+
+* databaseURI: Chaîne de connexion URI pour votre MongoDB.
+* cloud: Chemin de votre application Cloud Code.
+* appId: Un identifiant unique pour votre application.
+* fileKey: Une clé qui spécifie un préfixe utilisé pour le stockage de fichiers. (seulement nécessaire pour les anciens fichiers s3 clarify this)
+* masterKey: Une clé secrete qui l'emporte sur toutes les autorisations. Gardez la ultra-confidentielle.
+* clientKey: La clé du client pour votre application.
+* restAPIKey: La clé de l'API REST pour votre application.
+* javascriptKey: La clé JavaScript sur votre application.
+* dotNetKey: La clé .NET pour votre application.
+
+L'objet Parse Server a été conçu pour être passé directement dans le paramètre `app.use` qui va monter l'API Parse dans un répertoire virtuel spécifié dans votre application Express:
+
+```js
+var express = require('express');
+var ParseServer = require('parse-server').ParseServer;
+
+var app = express();
+var api = new ParseServer({ ... });
+
+//Construit l'API Parse  sur l'URL /parse
+app.use('/parse', api);
+
+var port = 1337;
+app.listen(port, function() {
+  console.log('parse-server-example est ouvert sur le port ' + port + '.');
+});
+```
+
+Et avec cela, vous aurez un Parse Server fonctionnant sur le port 1337, au service de l'API Parse sur `app.use`
