@@ -1,0 +1,18 @@
+# Base de données
+
+Parse Server utilise [MongoDB](https://www.mongodb.org/) qui est la base de données pour votre application. Si vous n'avez jamais utilisé MongoDB avant, nous vous recommandons fortement de vous familiariser avec lui avant de continuer à lire ce guide. Vous pouvez le faire grâce à [ce tutoriel](https://openclassrooms.com/courses/guide-de-demarrage-pour-utiliser-mongodb).
+
+Les exigences de MongoDB pour Parse Server sont:
+
+* MongoDB version 2.6.X ou 3.0.X
+* Le paramètre [failIndexKeyTooLong](https://docs.mongodb.org/manual/reference/parameters/#param.failIndexKeyTooLong) doit être réglé sur false
+* Une connexion SSL est recommandé (mais pas obligatoire).
+* Nous recommandons vivement que vos serveurs MongoDB soient hébergés dans la région Est des Etats-Unies pour moins de latence.
+
+Si ceci est votre première mise en place d'une instance MongoDB de production, nous vous recommandons d'utiliser [MongoLab](http://www.mongolab.com), une base de données database-as-a-service, qui est un service gratuit d'hébergement et de gestion de base de données MongoDB.
+
+Pour une application de production avec un très fort trafic, nous vous recommandons d'utiliser le [plan M1](https://mongolab.com/plans/pricing/#dedicated-cluster-plans) ou plus de MongoLab qui fournit 40Go d'espace. Si vous migrez une application existante de Parse, la best-practice est d'obtenir une instance avec 10 fois plus d'espace que vous utilisez actuellement sur Parse.com.
+
+Lors de l'utilisation de MongoDB avec votre application Parse, il ya quelques différences avec la base de données de Parse.com:
+* Vous devez gérer vos index vous-même. Parse.com ajoutait automatiquement les index basés sur le flux de requête entrante.
+* Vous avez besoin d'augmenter la taille de votre base de données lorsque vos données deviennent importantes.
