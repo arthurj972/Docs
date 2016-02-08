@@ -1,0 +1,5 @@
+# Keys
+
+Le serveur d'analyse de fichier ne nécessite pas l'utilisation de clés côté client. Cela comprend la clientKey, clé JavaScript, clé .NET, et la clé de l'API REST. L'appID est suffisante pour sécuriser votre application.
+
+Cependant, vous avez la possibilité de spécifier une de ces quatre clés lors de l'initialisation. Le comportement serait ainsi plus cohérent avec Parse.com mais pas obligatoire.
