@@ -1,0 +1,5 @@
+#Tutoriels complets en vidéo
+
+##Déploiement sur Windows Server
+
+Voici un [tutoriel vidéo](https://www.youtube.com/watch?v=z1IwQi3jdjg) vous permettant d'installer Parse Server sur l'infrastructure Windows Server.
